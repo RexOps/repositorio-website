@@ -27,6 +27,7 @@
         <li><a href="/#mirror_a_repository">Mirror Repository</a></li>
         <li><a href="/#create_custom_repository">Custom Repository</a></li>
         <li><a href="/#configuration_management">Configuration Management</a></li>
+        <li><a href="https://flattr.com/thing/5576b68e28b3c01a9f127b0e0c81e619" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a></li>
       </ul>
       <div class="clear-fix"></div>
     </div>
@@ -74,7 +75,7 @@
             in <b>/etc/rex/repositorio.conf</b>. Just open the file in an editor and add the repositories you want to mirror.
           </p>
           <p>
-            Currently repositor.io is only supporting <i>Yum</i> mirrors. If you want to contribute please visit our <a href="https://github.com/krimdomu/repositorio">Github</a> repository.
+            Currently repositor.io supports <i>Yum</i> and <i>Apt</i> mirrors. If you want to contribute please visit our <a href="https://github.com/krimdomu/repositorio">Github</a> repository.
           </p>
           <p>
             Now you can run the mirror command to start the mirror process:
@@ -100,8 +101,23 @@ can do this with the tag command:
   type  = Yum
 &lt;/Repository&gt;</code></pre>
           <p>
+            If you want to create an Apt repository instead the configuration looks a bit different.
+          </p>
+          <pre><code># line in sources.list:
+# deb http://your-server.corp/custom-repo/debian wheezy custom
+&lt;Repository custom-repo&gt;
+  local     = custom-repo/debian
+  type      = Apt
+  arch      = amd64
+  dist      = wheezy
+  component = custom
+&lt;/Repository&gt;</code></pre>
+          <p>
             After adding your repository to the configuration file you can just initialize the new repository. 
+          </p>
+          <p>
             For the <b>Yum</b> repository type you need to have <b>createrepo</b> installed on your system.
+            For <b>Apt</b> you need <b>apt-ftparchive</b>.
           </p>
           <pre><code class="bash">$ repositorio --repo=custom-repo --init</code></pre>
           <p>
