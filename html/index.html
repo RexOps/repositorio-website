@@ -74,6 +74,13 @@
           <p>
             This will add the <a href="https://fedoraproject.org/wiki/EPEL">EPEL</a> and <a href="http://www.rexify.org/">(R)?ex</a> package repositories to your package manager (on CentOS and RedHat) and install the application.
           </p>
+          <h2>Supported Distributions</h2>
+          <p>The installer script of <i>repositor.io</i> is tested on the following distributions.</p>
+          <ul>
+            <li>CentOS 6 + 7</li>
+            <li>Debian 7</li>
+            <li>Ubuntu 12.04 + 14.04</li>
+          </ul>
         </div>
       </div>
 
@@ -241,6 +248,9 @@ can do this with the tag command:
           <pre><code class="bash">$ docker pull myserver:3000/ubuntu</code></pre>
 
           <h2>Have Problems?</h2>
+          <p>If you don't use SSL encryption you have to add the following option to your docker daemons options:</p>
+          <pre><code>--insecure-registry myserver:3000</code></pre>
+
           <p>If you have problems, questions or suggestions, feel free to open an issue on <a href="https://github.com/RexOps/repositorio">Github</a> and/or join our irc channel on <a href="irc://irc.freenode.net/rex">irc.freenode.net</a> channel <b>#rex</b>.</p>
         </div>
       </div>
