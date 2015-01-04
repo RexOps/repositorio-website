@@ -10,8 +10,9 @@ html {
 }
 
 body {
-  background-image: url('/img/background.jpg');
+  background-image: url('../img/background.jpg');
   background-repeat: no-repeat;
+  background-color: #edf1fa;
 }
 
 
@@ -107,6 +108,13 @@ h1 {
   color: #262627;
 }
 
+h2 {
+  padding-top: 15px;
+  padding-bottom: 7px;
+  color: #262627;
+  font-size: 18px;
+}
+
 .page {
   display: none;
 }
@@ -132,4 +140,10 @@ code span.keyword,
 code span.string {
   font-family: 'Courier New' !important;
 }
+
+.content_text ul {
+  margin-left: 25px;
+}
+
+
 
