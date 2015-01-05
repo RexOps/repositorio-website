@@ -47,7 +47,7 @@
           <p>
             It is also possible to <a href="#errata">query repositorio for errata data</a> if an 
             errata database is available. Currently we manage databases for
-            CentOS (5, 6, 7) and EPEL (5, 6, 7).
+            CentOS (5, 6, 7), EPEL (5, 6, 7), Debian (Squeeze, Wheezy, Jessie) and Ubuntu (10.04, 12.04, 14.04).
           </p>
           <p>
             Since version 0.3 it is also possible to use repositor.io as a 
@@ -176,7 +176,7 @@ can do this with the tag command:
   errata = CentOS-6
 &lt;/Repository&gt;
 </code></pre>
-          <p>Currently we are maintaining errata databases for CentOS 5, 6, 7 and EPEL 5, 6, 7. If you want to provide errata databases for other distributions feel free to contact us on <a href="https://github.com/RexOps/repositorio">Github</a> or <a href="irc://irc.freenode.net/rex">irc.freenode.net</a> channel <b>#rex</b>.</p>
+          <p>Currently we are maintaining errata databases for CentOS (5, 6, 7), EPEL (5, 6, 7), Debian (squeeze, wheezy, jessie) and Ubuntu (10.04, 12.04, 14.04). If you want to provide errata databases for other distributions feel free to contact us on <a href="https://github.com/RexOps/repositorio">Github</a> or <a href="irc://irc.freenode.net/rex">irc.freenode.net</a> channel <b>#rex</b>.</p>
           <p>Valid errata types are:</p>
           <ul>
             <li>CentOS-5</li>
@@ -185,6 +185,12 @@ can do this with the tag command:
             <li>epel-5</li>
             <li>epel-6</li>
             <li>epel-7</li>
+            <li>debian-squeeze</li>
+            <li>debian-wheezy</li>
+            <li>debian-jessie</li>
+            <li>ubuntu-10.04</li>
+            <li>ubuntu-12.04</li>
+            <li>ubuntu-14.04</li>
           </ul>
           <h2>Update Errata Database</h2>
           <p>To update your errata database you can use the <i>--update-errata</i> option. We are updating errata information every day.</p>
