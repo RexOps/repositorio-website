@@ -45,14 +45,20 @@
             outgoing http traffic.
           </p>
           <p>
+            Currently repositor.io supports the managing and mirroring of these distributions:
+          </p>
+          <ul>
+            <li><a href="#mirror_centos">CentOS</a></li>
+            <li><a href="#mirror_debian">Debian</a></li>
+            <li><a href="#mirror_ubuntu">Ubuntu</a></li>
+            <li><a href="#mirror_redhat_enterprise">Redhat Enterprise</a></li>
+            <li><a href="#docker">Docker</a> (no mirror, only private docker registry)</li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>
             It is also possible to <a href="#errata">query repositorio for errata data</a> if an 
             errata database is available. Currently we manage databases for
             CentOS (5, 6, 7), EPEL (5, 6, 7), Debian (Squeeze, Wheezy, Jessie) and Ubuntu (10.04, 12.04, 14.04).
-          </p>
-          <p>
-            Since version 0.3 it is also possible to use repositor.io as a 
-            <a href="#docker">private docker</a> registry. So you can use repositor.io to create a
-            private deployment pipeline with your private docker images.
           </p>
           <p>
             With repositor.io it is easy to create custom repositories for
@@ -83,6 +89,89 @@
           </ul>
         </div>
       </div>
+
+      <div id="page_mirror_debian" class="page">
+        <h1>Mirror Debian</h1>
+        <div class="content_text">
+          <p>
+          To mirror a debian repository you need to know which <i>version</i>, which <i>architecture</i> and which <i>component</i> you want to mirror. You'll find an example configuration below. This example will mirror the <i>main</i> repository for <i>wheezy</i> from <i>ftp2.de.debian.org</i>.
+          </p>
+          <pre><code>&lt;Repository debian-wheezy-amd64-main&gt;
+  url       = http://ftp2.de.debian.org/debian/
+  local     = debian-wheezy-amd64-main/debian
+  type      = Apt
+  arch      = amd64
+  dist      = wheezy
+  component = main
+&lt;/Repository&gt;
+</code></pre>
+          <p>It is <b>important</b> that the first part of the <i>local</i> option is the same as the repository name. (here: debian-wheezy-amd64-main).</p>
+        </div>
+      </div>
+
+      <div id="page_mirror_ubuntu" class="page">
+        <h1>Mirror Ubuntu</h1>
+        <div class="content_text">
+          <p>
+          To mirror a ubuntu repository you need to know which <i>version</i>, which <i>architecture</i> and which <i>component</i> you want to mirror. You'll find an example configuration below. This example will mirror the <i>main</i> repository for <i>precise</i> from <i>de.archive.ubuntu.com</i>.
+          </p>
+          <pre><code>&lt;Repository ubuntu-precise-amd64-main&gt;
+  url       = http://de.archive.ubuntu.com/ubuntu/
+  local     = ubuntu-precise-amd64-main/ubuntu
+  type      = Apt
+  arch      = amd64
+  dist      = precise
+  component = main
+&lt;/Repository&gt;
+</code></pre>
+          <p>It is <b>important</b> that the first part of the <i>local</i> option is the same as the repository name. (here: ubuntu-precise-amd64-main).</p>
+        </div>
+      </div>
+
+      <div id="page_mirror_centos" class="page">
+        <h1>Mirror CentOS</h1>
+        <div class="content_text">
+          <p>
+          To mirror a CentOS repository you need to know the complete url to an existing mirror. You'll find an example configuration below. This example will mirror the CentOS 6 installation media from ftp.hosteurope.de.
+          </p>
+          <pre><code>&lt;Repository centos-6-x86-64&gt;
+  url    = http://ftp.hosteurope.de/mirror/centos.org/6/os/x86_64/
+  local  = centos-6-x86-64/CentOS/6/os/x86_64/
+  type   = Yum
+  images = true
+&lt;/Repository&gt;
+</code></pre>
+          <p>It is <b>important</b> that the first part of the <i>local</i> option is the same as the repository name. (here: centos-6-x86-64).</p>
+          <p>The option <b>images = true</b> will also mirror the pxe/tftp boot files.</p>
+        </div>
+      </div>
+
+
+      <div id="page_mirror_redhat_enterprise" class="page">
+        <h1>Mirror Redhat Enterprise</h1>
+        <div class="content_text">
+          <p>
+          To mirror a Redhat Enterprise repository you need to know the complete url to an existing mirror and the SSL client certification. You can download this certificate from Redhat Network (see below if you need help). You'll find an example configuration below. This example will mirror the RHEL 6 repository from https://cdn.redhat.com/.
+          </p>
+          <pre><code>&lt;Repository rhel-6-x86-64&gt;
+  url    = https://cdn.redhat.com/content/dist/rhel/server/6/6Server/x86_64/os/
+  local  = rhel-6-x86-64/rhel/server/6Server/x86_64/os
+  type   = Yum
+  key    = /etc/rex/ssl/db15c9814abada2a014ab335f6fe3f8c.pem
+  cert   = /etc/rex/ssl/db15c9814abada2a014ab335f6fe3f8c.pem
+  ca     = /etc/rhsm/ca/redhat-uep.pem
+&lt;/Repository&gt;
+</code></pre>
+          <p>The <i>key</i>, <i>cert</i> and <i>ca</i> parameter defines the proper SSL options, so that repositor.io know that it must do ssl client authentication.</p>
+          <p>It is <b>important</b> that the first part of the <i>local</i> option is the same as the repository name. (here: rhel-6-x86-64).</p>
+          <p>The option <b>images = true</b> will also mirror the pxe/tftp boot files.</p>
+
+          <h2>Register on Redhat Network</h2>
+          <p>To be able to connect to the Redhat Network you need to register the machine where repositor.io is running to the Redhat Network. You can do this on the <a href="https://access.redhat.com/management/consumers/">Customer Portal</a>. After registering a new system you need to attach a subscribtion to it. Now you can download the certificate file from the <i>Entitlement Certificate</i> column. This will download one file containing the key and the certificate.</p>
+          <p>You also need the Redhat Network CA certificate. If you're on a Redhat System you'll find it under <i>/etc/rhsm/ca/redhat-uep.pem</i>.</p>
+        </div>
+      </div>
+
 
       <div id="page_mirror_a_repository" class="page">
         <h1>Using repositor.io to mirror a repository</h1>
