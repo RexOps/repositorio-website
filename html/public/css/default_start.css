@@ -6,13 +6,13 @@
 }
 
 body {
-  background-image: url(../img/background.png);
+  background-image: url(../img/background.png?2);
   background-repeat: repeat-x;
   background-color: #ffffff;
 }
 
 #content {
-  background-image: url(../img/background.png);
+  background-image: url(../img/background.png?2);
   background-repeat: repeat-x;
   background-color: #ffffff;
   background-position: 0px -65px;

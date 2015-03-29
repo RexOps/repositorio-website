@@ -106,8 +106,8 @@ __DATA__
       <meta name="viewport" content="width=1024, initial-scale=0.5" />
 
       <link href="http://yandex.st/highlightjs/7.3/styles/magula.min.css" rel="stylesheet"/>
-      <link rel="stylesheet" href="/css/<%= $css %>?1" type="text/css" media="screen" charset="utf-8" />
-      <link rel="stylesheet" href="/css/base.css?1" type="text/css" media="screen" charset="utf-8" />
+      <link rel="stylesheet" href="/css/<%= $css %>?2" type="text/css" media="screen" charset="utf-8" />
+      <link rel="stylesheet" href="/css/base.css?2" type="text/css" media="screen" charset="utf-8" />
 
       <meta name="description" content="repositor.io - Manage your package repositories the easy way." />
       <meta name="keywords" content="package, repository, rpm, yum, createrepo, patch management, docker" />
