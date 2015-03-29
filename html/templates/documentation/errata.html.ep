@@ -1,0 +1,68 @@
+% layout 'default';
+
+<div id="page_header">
+  <div class="breadcrumb">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>&raquo;</li>
+      <li><a href="/documentation.html">Documentation</a></li>
+      <li>&raquo;</li>
+      <li>Errata</li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <h1>Query Errata</h1>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="main_content">
+  <h1><span class="highlight">Querying </span> errata information</h1>
+
+
+<p>If you want to do proper patch management you always need to know which packages are on your servers and which updates are available for them. <i>repositor.io</i> has currently a database that can be queried to get information about package updates.</p>
+          <p>This database can be used together with a configuration management tool like <a href="http://www.rexify.org/">(R)?ex</a> to manage package updates on your servers.</p>
+          <h2>Configuration</h2>
+          <p>To configure an errata database for a repository you have to define the errata type repositor.io should use. The following example configuration is a CentOS 6 mirror and will expose the errata database for CentOS 6.</p>
+          <pre><code>&lt;Repository centos-6-x86-64&gt;
+  url    = http://ftp.hosteurope.de/mirror/centos.org/6/os/x86_64/
+  local  = centos-6-x86-64/CentOS/6/rex/x86_64/
+  type   = Yum
+  errata = CentOS-6
+&lt;/Repository&gt;
+</code></pre>
+          <p>Currently we are maintaining errata databases for CentOS (5, 6, 7), EPEL (5, 6, 7), Debian (squeeze, wheezy, jessie) and Ubuntu (10.04, 12.04, 14.04). If you want to provide errata databases for other distributions feel free to contact us on <a href="https://github.com/RexOps/repositorio">Github</a> or <a href="irc://irc.freenode.net/rex">irc.freenode.net</a> channel <b>#rex</b>.</p>
+          <p>Valid errata types are:</p>
+          <ul>
+            <li>CentOS-5</li>
+            <li>CentOS-6</li>
+            <li>CentOS-7</li>
+            <li>epel-5</li>
+            <li>epel-6</li>
+            <li>epel-7</li>
+            <li>debian-squeeze</li>
+            <li>debian-wheezy</li>
+            <li>debian-jessie</li>
+            <li>ubuntu-10.04</li>
+            <li>ubuntu-12.04</li>
+            <li>ubuntu-14.04</li>
+          </ul>
+          <h2>Update Errata Database</h2>
+          <p>To update your errata database you can use the <i>--update-errata</i> option. We are updating errata information every day.</p>
+          <pre><code class="bash">$ repositorio --repo=centos-6-x86-64 --update-errata</code></pre>
+
+          <h2>Query Errata Database</h2>
+          <p>There are 2 types how you can query the errata database. You can use the command line tool <i>repositorio</i> or a webservice.</p>
+          <p>To use the CLI run the following command.</p>
+          <pre><code class="bash">$ repositorio --repo=centos-6-x86-64 --errata --package=openssl --arch=x86_64 --version=1.0.1e-16.el6_5.4</code></pre>
+          <p>To use the webservice you first need to start an integrated webserver. This webserver can serve the contents of a repository and is used to query the errata database.</p>
+          <pre><code class="bash">$ repositorio --repo=centos-6-x86-64 --server prefork</code></pre>
+          <p>This will start a preforking webserver on port 3000. If you want to use another port you can get help for all the parameters with the following command.</p> 
+          <pre><code class="bash">$ repositorio --repo=centos-6-x86-64 --server prefork -- --help</code></pre>
+
+          <p>Now you can query the database with - for example - curl.</p>
+          <pre><code class="bash">$ curl -XGET \
+   http://yourrepo:3000/head/centos-6-x86-64/errata?package=openssl&amp;arch=x86_64&amp;version=1.0.1e-16.el6_5.4</code></pre>
+
+
+</div>

@@ -1,0 +1,72 @@
+% layout 'default';
+
+<div id="page_header">
+  <div class="breadcrumb">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>&raquo;</li>
+      <li><a href="/documentation.html">Documentation</a></li>
+      <li>&raquo;</li>
+      <li>Custom</li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <h1>Custom Repository</h1>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="main_content">
+  <h1><span class="highlight">Create </span> a custom repository</h1>
+
+<p>
+            First you have to edit your configuration file and add a new repository.
+          </p>
+          <pre><code>&lt;Repository custom-repo&gt;
+  local = custom-repo/custom/6/x86_64/
+  type  = Yum
+&lt;/Repository&gt;</code></pre>
+          <p>
+            If you want to create an Apt repository instead the configuration looks a bit different.
+          </p>
+          <pre><code># line in sources.list:
+# deb http://your-server.corp/custom-repo/debian wheezy custom
+&lt;Repository custom-repo&gt;
+  local     = custom-repo/debian
+  type      = Apt
+  arch      = amd64
+  dist      = wheezy
+  component = custom
+&lt;/Repository&gt;</code></pre>
+          <p>
+            After adding your repository to the configuration file you can just initialize the new repository.
+          </p>
+          <p>
+            For the <b>Yum</b> repository type you need to have <b>createrepo</b> installed on your system.
+            For <b>Apt</b> you need <b>apt-ftparchive</b>.
+          </p>
+          <pre><code class="bash">$ repositorio --repo=custom-repo --init</code></pre>
+          <p>
+            Now you can add files to your new repository with the <i>add-file</i> command:
+          </p>
+          <pre><code class="bash">$ repositorio --repo=custom-repo --add-file=my-custom-package-1.0.rpm</code></pre>
+          <h2>Signing repositories</h2>
+            <p>If you want to sign your repositories, you have to create a gpg first. You can do this with the following command.</p>
+                  <pre><code class="bash">$ gpg --gen-key</code></pre>
+            <p>After you have create your key, you need to get the key id.</p>
+                  <pre><code class="bash">$ gpg --list-secret-keys</code></pre>
+            <p>You will see a line like this: <i>sec   2048R/DA95F273</i> and from this line you need <i>DA95F273</i></p>
+            <p>Now you can edit the repositorio configuration file and add the following part to your custom repository.</p>
+                  <pre><code>&lt;Repository custom-repo&gt;
+  local = custom-repo/custom/6/x86_64/
+  type  = Yum
+  &lt;gpg&gt;
+    key      = DA95F273
+    password = passw0rd
+  &lt;/gpg&gt;
+&lt;/Repository&gt;</code></pre>
+	  <p>For <b>Apt</b> repositories you have to extend the configuration with the same parameters.</p>
+	  <p>If you don't want to add your password into the configuration file, you can just omit the password line. repositorio will ask you for the password during execution.</p>
+
+</div>
+

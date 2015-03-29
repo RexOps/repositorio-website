@@ -1,0 +1,39 @@
+% layout 'default';
+
+<div id="page_header">
+  <div class="breadcrumb">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>&raquo;</li>
+      <li><a href="/documentation.html">Documentation</a></li>
+      <li>&raquo;</li>
+      <li>Mirror</li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <h1>Mirror a repository</h1>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="main_content">
+  <h1><span class="highlight">Using </span> repositor.io to mirror a repository</h1>
+
+  <p>
+            First you have to create a configuration file. The installation already has created an example file for you
+            in <b>/etc/rex/repositorio.conf</b>. Just open the file in an editor and add the repositories you want to mirror.
+          </p>
+          <p>
+          Currently repositor.io supports <i>Yum</i>, <i>Apt</i>, <i>Yast</i> and plain <i>HTTP</i> mirrors. If you want to contribute please visit our <a href="https://github.com/RexOps/repositorio">Github</a> repository.
+          </p>
+          <p>
+            Now you can run the mirror command to start the mirror process:
+          </p>
+          <pre><code class="bash">$ repositorio --mirror --repo=repository-name</code></pre>
+          <p>
+            repositorio will download the repository into the <i>head</i> branch. If you want to create a tag of a tested state you
+can do this with the tag command:
+          </p>
+          <pre><code class="bash">$ repositorio --repo=repository-name --tag=production</code></pre>
+
+</div>

@@ -1,0 +1,31 @@
+% layout 'default';
+
+<div id="page_header">
+  <div class="breadcrumb">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>&raquo;</li>
+      <li>Features</li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <h1>Features</h1>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="main_content">
+  <h1><span class="highlight">Features</span> made for you</h1>
+  <p>We had the requirement to mirror yum and apt repositories in a reliable way. Also we had the need to maintain custom repositories with custom packages. So we decided to build repositor.io.</p>
+  <p>All the features in repositor.io is driven by its community. So if you miss some functions please feel free to report your requirement on <a href="https://github.com/RexOps/repositorio">Github</a>.</p>
+
+  <h2><span class="highlight">repositor.io</span> supported repositories</h2>
+  <ul>
+    <li>Debian (apt)</li>
+    <li>Ubuntu (apt)</li>
+    <li>CentOS (yum)</li>
+    <li>RedHat (yum)</li>
+    <li>OpenSuSE (yast mirroring, yum custom repositories)</li>
+    <li>Docker (private docker registry)</li>
+  </ul>
+</div>

@@ -1,0 +1,31 @@
+% layout 'default';
+
+<div id="page_header">
+  <div class="breadcrumb">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>&raquo;</li>
+      <li>Documentation</li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+  <h1>Documentation</h1>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="main_content">
+  <h1><span class="highlight">List</span> of guides and documentation</h1>
+
+  <ul>
+    <li><a href="/documentation/mirror.html">Mirror a repository</a></li>
+    <li><a href="/documentation/custom.html">Create a custom repository</a></li>
+    <li><a href="/documentation/mirror_centos.html">Mirror a CentOS repository</a></li>
+    <li><a href="/documentation/mirror_debian.html">Mirror a Debian repository</a></li>
+    <li><a href="/documentation/mirror_ubuntu.html">Mirror a Ubuntu repository</a></li>
+    <li><a href="/documentation/mirror_redhat.html">Mirror a RedHat repository</a></li>
+    <li><a href="/documentation/docker.html">Create a private docker registry</a></li>
+    <li><a href="/documentation/errata.html">Querying errata information</a></li>
+  </ul>
+
+</div>
