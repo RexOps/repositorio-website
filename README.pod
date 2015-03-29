@@ -1,0 +1,29 @@
+=pod
+
+=head2 This is the code for repositor.io
+
+Don't blame me for the code... I hate creating websites...
+
+=head2 Run it locally
+
+If you want to make changes and test these changes on your workstation follow these steps:
+
+=over
+
+=item *
+
+Clone the repo: C<git clone https://github.com/RexOps/repositorio-website.git>
+
+=item *
+
+Install Perl modules: C<cpanm DateTime IO::All Mojolicious Mojolicious::Plugin::RenderFile Text::Markdown>
+
+=item *
+
+Start a local webserver: C<cd repositorio-website/html && morbo website.pl>
+
+=item *
+
+Open L<http://localhost:3000> in your favorite browser
+
+=back
