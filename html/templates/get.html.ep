@@ -18,7 +18,10 @@
   <h1><span class="highlight">Howto</span> install repositor.io</h1>
 
   <p>Installing repositor.io is easy! Just open a terminal as root and run this command:</p>
-  <pre><code class="bash">$ wget -O - http://get.repositor.io/ | bash</code></pre>
+  <pre><code class="bash">$ \wget -O - http://get.repositor.io/ | bash</code></pre>
+
+  <p>If you don't have wget installed you can also use curl for this:</p>
+  <pre><code class="bash">$ \curl http://get.repositor.io/ | bash</code></pre>
 
   <p>This will add the <a href="https://fedoraproject.org/wiki/EPEL">EPEL</a> and <a href="http://www.rexify.org/">RexOps</a> package repositories to your package manager (on CentOS and RedHat) and install the application.</p>
 
@@ -26,7 +29,7 @@
   <p>The installer script of <i>repositor.io</i> is tested on the following distributions.</p>
   <ul>
     <li>CentOS 6 + 7</li>
-    <li>Debian 7</li>
+    <li>Debian 7 + 8</li>
     <li>Ubuntu 12.04 + 14.04</li>
   </ul>
 </div>

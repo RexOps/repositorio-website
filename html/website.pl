@@ -145,7 +145,7 @@ __DATA__
             <li>
               <h4>Latest News</h4>
               % for my $news_item (@{$news}) {
-              <p><%= $news_item->{date} %> - <%= $news_item->{text} %></p>
+              <p style="padding-bottom: 10px;"><span class="highlight"><%= $news_item->{date} %></span> - <%= $news_item->{text} %></p>
               % }
             </li>
             <li>
@@ -163,6 +163,7 @@ __DATA__
           <p class="logo_trademark"><i>1) All logos are registered trademarks of their respective companies and are not affiliated with and do not necessarily indicate that they either sponsor or endorse the services of repositor.io (and repositorio).</i></p>
         </div>
       </div>
+      <script src="/js/main.js"></script>
     </body>
   </hmtl>
 

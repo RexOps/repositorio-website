@@ -28,4 +28,8 @@
     <li>OpenSuSE (yast mirroring, yum custom repositories)</li>
     <li>Docker (private docker registry)</li>
   </ul>
+
+  <h2><span class="highlight">Proxy</span> support to save bandwith</h2>
+  <p>The webserver of repositor.io supports proxying of packages. This allows you to save bandwith and diskspace because repositorio will only store the files you really needs.</p>
+  <p>See the <a href="/documentation/proxy.html">proxy documentation</a> to see how you can configure this feature.</p>
 </div>

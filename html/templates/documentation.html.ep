@@ -26,6 +26,7 @@
     <li><a href="/documentation/mirror_redhat.html">Mirror a RedHat repository</a></li>
     <li><a href="/documentation/docker.html">Create a private docker registry</a></li>
     <li><a href="/documentation/errata.html">Querying errata information</a></li>
+    <li><a href="/documentation/proxy.html">Act as a proxy server</a></li>
   </ul>
 
 </div>
