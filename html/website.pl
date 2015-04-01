@@ -145,7 +145,7 @@ __DATA__
             <li>
               <h4>Latest News</h4>
               % for my $news_item (@{$news}) {
-              <p style="padding-bottom: 10px;"><span class="highlight"><%= $news_item->{date} %></span> - <%= $news_item->{text} %></p>
+              <p style="padding-bottom: 10px;"><span class="highlight"><%= $news_item->{date} %></span> - <%== $news_item->{text} %></p>
               % }
             </li>
             <li>
