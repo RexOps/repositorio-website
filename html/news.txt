@@ -1,4 +1,4 @@
+2015-05-09,repositor.io 1.1.0 released. This is a bugfix release with fixes for ubuntu and centos7 installation media mirroring.
+2015-05-03,(R)?ex 1.2.0 released. See the <a href="https://www.rexify.org/howtos/releases/1.2.0.html">release notes</a> for more details.
 2015-04-06,repositor.io 1.0.0 released. This version brings proxy support to docker. Many thanks to <a href="https://www.inovex.de/">inovex</a> who sponsored this feature.
 2015-04-01,repositor.io 0.7.0 released. This version brings proxy support to yum, apt and yast repositories.
-2015-03-29,(R)?ex 1.1.0 released. See the <a href="https://www.rexify.org/howtos/releases/1.1.0.html">release notes</a> for more details.
-2015-03-29,New website online.
