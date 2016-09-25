@@ -1,0 +1,9 @@
+% my @anc = $page->ancestors;
+
+<ul>
+% for my $a_o (reverse @anc) {
+  <li><a href="<%= $a_o->generate_url %>"><%= $a_o->name %></a></li>
+  <li>&raquo;</li>
+% }
+  <li><%= $page->name %></li>
+</ul>

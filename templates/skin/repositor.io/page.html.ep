@@ -1,0 +1,4 @@
+% layout 'skin/repositor.io/default';
+
+%== $page->get_parsed_content;
+

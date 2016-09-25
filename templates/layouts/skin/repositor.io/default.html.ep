@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+      <title>Repositor.io - Simple Linux Repository Management</title>
+
+      <meta name="viewport" content="width=1024, initial-scale=0.5" />
+
+      <link href="http://yandex.st/highlightjs/7.3/styles/magula.min.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="/css/default.css?3" type="text/css" media="screen" charset="utf-8" />
+      <link rel="stylesheet" href="/css/base.css?3" type="text/css" media="screen" charset="utf-8" />
+
+      <meta name="description" content="repositor.io - Manage your package repositories the easy way." />
+      <meta name="keywords" content="package, repository, rpm, yum, createrepo, patch management, docker" />
+
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    </head>
+    <body>
+      <div id="body">
+        <div id="navigation">
+           %= include 'skin/repositor.io/_navigation';
+          <div class="clearfix"></div>
+        </div>
+      </div>
+        <div id="content">
+          <div class="content">
+          <div id="page_header">
+            <div class="breadcrumb">
+              %= include 'skin/repositor.io/_breadcrumb';
+            </div>
+            <div class="clearfix"></div>
+            <h1><%= $page->title %></h1>
+            <div class="clearfix"></div>
+          </div>
+          
+          
+          <div class="main_content">
+              <%= content %>
+            </div>
+          </div>
+        </div>
+      <div id="footer">
+        <div class="footer_content">
+          <ul>
+            <li>
+              <h4>Google Group</h4>
+              <p>Join our <a href="https://groups.google.com/forum/#!forum/rex-users">Google Group</a> to get support and talk to the community.</p>
+            </li>
+            <li>
+              <h4>Latest News</h4>
+              %= include 'skin/repositor.io/_news';
+            </li>
+            <li>
+              <h4>Follow Us</h4>
+              <p><a href="https://github.com/RexOps/repositorio">Github</a></p>
+              <p><a href="http://twitter.com/RexOps">Twitter</a></p>
+            </li>
+            <li>
+              <h4>More Links</h4>
+              <p><a href="http://www.rexify.org/" target="_blank">Home of (R)?ex</a></p>
+              <p><a href="http://www.disclaimer.de/disclaimer.htm" target="_blank">Disclaimer</a></p>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+          <p class="logo_trademark"><i>1) All logos are registered trademarks of their respective companies and are not affiliated with and do not necessarily indicate that they either sponsor or endorse the services of repositor.io (and repositorio).</i></p>
+        </div>
+      </div>
+      <script src="/js/main.js"></script>
+    </body>
+  </hmtl>
+  

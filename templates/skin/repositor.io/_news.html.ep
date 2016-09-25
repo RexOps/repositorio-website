@@ -1,0 +1,7 @@
+% my $news_o = $site->get_page(53);
+% for my $news_item ($news_o->children({"me.active" => 1, "me.hidden" => 0})) {
+% my ($news_date) = split(/ /, $news_item->data->{news_date});
+% my $content_n = $news_item->get_parsed_content;
+% $content_n =~ s/<[^>]+>//gms;
+<p style="padding-bottom: 10px;"><span class="highlight"><%= $news_date %></span> - <%= $content_n %></p>
+% }

@@ -1,0 +1,8 @@
+% my $root = $site->get_root_page();
+
+<ul>
+  <li><a href="/"><%= $root->name %></a></li>
+% for my $child ($root->children->search({"me.navigation" => 1, "me.hidden" => 0})) {
+  <li><a href="<%= $child->generate_url %>"><%= $child->name %></a></li>
+% }
+</ul>
