@@ -2,4 +2,23 @@
 
 =head2 This is the code for repositor.io
 
+=head2 Run website
+
+You need to docker to run the website on your local machine.
+
+You have to adjust docker-compose.yml to point to the right location to persist postgresql data if you want to 
+persist it.
+
+You also need to define some environment variables (set them to something random):
+
+* DB_PASSWORD
+* POSTGRES_PASSWORD
+
+To start:
+
+```
+docker-compose build
+docker-compouse up
+```
+
 
