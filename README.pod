@@ -21,4 +21,6 @@ docker-compose build
 docker-compouse up
 ```
 
+After starting the website is available with http://127.0.0.1:8080/. 
+The Admin area is located at http://127.0.0.1:8080/admin/login. User and password is "admin" / "admin".
 
