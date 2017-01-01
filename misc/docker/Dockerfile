@@ -4,6 +4,9 @@ ENV VERSION 0.1.9
 
 EXPOSE 8080
 
+RUN apt-get update
+RUN apt-get -y install netcat
+
 RUN mkdir -p /var/lib/pitahaya/instance1/
 RUN cd /var/lib/pitahaya/instance1/ ; git clone https://github.com/RexOps/repositorio-website.git .
 RUN cd /var/lib/pitahaya/instance1/ ; git checkout cms

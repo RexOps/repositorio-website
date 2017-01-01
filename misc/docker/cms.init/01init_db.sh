@@ -2,12 +2,16 @@
 
 export PGPASSWORD=$POSTGRES_PASSWORD
 
-for x in $(seq 15 1); do
+for x in $(seq 1 60); do
     echo $x
+    nc -z -v -w5 db 5432 >/dev/null 2>&1
+    if [ "$?" = "0" ]; then
+        break
+    fi
     sleep 1
 done
 
-if ( echo '\l' | psql -h 127.0.0.1 -U postgres | awk ' { print $1 } ' ) | grep $DB_SCHEMA; then
+if ( echo '\l' | psql -h db -U postgres | awk ' { print $1 } ' ) | grep $DB_SCHEMA; then
     echo "DB Already exists. Skipping DB import."
     exit 0
 fi
